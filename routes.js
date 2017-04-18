@@ -1,6 +1,7 @@
 var authData = require('./models/authData');
 var Client = require('node-rest-client').Client;
 var rest = new Client();
+var gVars = require('./config/global');
 
 module.exports = function(app, passport) {
 
@@ -26,12 +27,15 @@ module.exports = function(app, passport) {
 
 	app.get('/login', function(req, res) {
 		res.render('login');
+		//res.sendFile(__dirname + '/client/index.html')
 	});
 
 	app.get('/profile', function(req ,res) {
-		res.render('profile' , {
-			user: req.user
-		})
+		/*res.render('profile' , {
+			user: req.user,
+			data: gVars.demoData
+		})*/
+		res.sendFile(__dirname + '/client/index.html')
 	});
 
 	app.get('/logout', function(req, res) {

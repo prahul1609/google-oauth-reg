@@ -24,7 +24,7 @@ var rest = new Client();
 	passport.use(new googleStrategy({
 		clientID: authConfig.googleAuth.clientID,
 		clientSecret: authConfig.googleAuth.clientSecret,
-		callbackURL: authConfig.googleAuth.callbackURL
+		callbackURL: authConfig.googleAuth.domainURL + authConfig.googleAuth.callbackURL
 	}, function(accessToken, refreshToken, profile, callBack) {
 			
 			if(profile._json.domain === 'arvindinternet.com') {
